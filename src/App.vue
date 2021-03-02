@@ -7,7 +7,7 @@
       <o-button @click="searchPokemon" :disabled="search.length === 0">Search Pokèmon</o-button>
     </div>
     <img :src="pokemon ? pokemon.sprites.front_default : null">
-    <o-table :data="data" :columns="columns"></o-table>
+    <o-table v-if="pokemon" :data="pokemon ? pokemon.stats : []" :columns="columns"></o-table>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     return {
       search: '',
       pokemon: null,
-      isPokemonValid: null,
+      isPokemonFound: null,
       data: [],
       columns: [
         {
@@ -41,17 +41,17 @@ export default {
   components: {},
   computed: {
     fieldType(){
-      if (this.isPokemonValid == true) {
+      if (this.isPokemonFound === true) {
         return 'success'
-      } else if (this.isPokemonValid == false) {
+      } else if (this.isPokemonFound === false) {
         return 'error'
       }
       return null
     },
     fieldMessage(){
-      if (this.isPokemonValid == true) {
-        return 'Catch it!'
-      } else if (this.isPokemonValid == false) {
+      if (this.isPokemonFound === true) {
+        return 'Catched!'
+      } else if (this.isPokemonFound === false) {
         return 'Pokèmon not found!'
       }
       return null
@@ -64,11 +64,10 @@ export default {
       .then(response => response.json())
       .then(data => {
         this.pokemon = data
-        this.data = this.pokemon.stats
-        this.isPokemonValid = true
+        this.isPokemonFound = true
       })
       .catch(() => {
-        this.isPokemonValid = false
+        this.isPokemonFound = false
       });
     }
   }

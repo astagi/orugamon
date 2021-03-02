@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import {Button, Config, Field, Input, Table, Pagination} from '@oruga-ui/oruga';
+import {Config, Button, Field, Input, Table, Pagination} from '@oruga-ui/oruga';
 
 import "nes.css/css/nes.min.css";
 import '@oruga-ui/oruga/dist/oruga.css'
