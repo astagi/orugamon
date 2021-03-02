@@ -1,0 +1,9 @@
+{
+    "labels": ["dependencies"],
+    "packageRules": [
+      {
+        "packagePatterns": ["@oruga-ui", "oruga"],
+        "groupName": "oruga packages"
+      }
+    ]
+  }
