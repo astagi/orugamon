@@ -60,7 +60,7 @@ export default {
   methods: {
     searchPokemon () {
       this.pokemon = null
-      fetch(`https://pokeapi.co/api/v2/pokemon/${this.search}`)
+      fetch(`https://pokeapi.co/api/v2/pokemon/${this.search.toLowerCase()}`)
       .then(response => response.json())
       .then(data => {
         this.pokemon = data
