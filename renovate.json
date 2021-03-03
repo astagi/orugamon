@@ -2,7 +2,7 @@
     "labels": ["dependencies"],
     "packageRules": [
       {
-        "packagePatterns": ["@oruga-ui", "oruga"],
+        "packagePatterns": ["@oruga-ui"],
         "groupName": "oruga packages"
       }
     ]
